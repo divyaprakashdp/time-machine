@@ -1,0 +1,126 @@
+body {
+  background-color: #f7eedc;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: #9d5c5c;
+  text-shadow: 2px 2px #d3d3d3;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: #9d5c5c;
+  text-shadow: 1px 1px #d3d3d3;
+  margin-bottom: 1rem;
+}
+
+input[type="date"] {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px #d3d3d3;
+  background-color: #f1f1f1;
+}
+
+button[type="submit"] {
+  background-color: #9d5c5c;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  box-shadow: 2px 2px #d3d3d3;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background-color: #b28383;
+  cursor: pointer;
+}
+
+.options-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.option {
+  background-color: #f1f1f1;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 2px 2px #d3d3d3;
+}
+
+.option-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: #9d5c5c;
+  text-shadow: 1px 1px #d3d3d3;
+  margin-bottom: 0.5rem;
+}
+
+.youtube-video {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+.youtube-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.instagram-photo {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+}
+
+.instagram-photo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.news-article {
+  margin-bottom: 1rem;
+}
+
+.news-article-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  color: #9d5c
+}
