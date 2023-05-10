@@ -1,16 +1,17 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import OptionsPage from './OptionsPage';
 
 function DateForm({ onSelectDate }) {
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState(new Date);
+  const history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    OptionsPage(date);
-    // const formData = new FormData(event.target);
-    // const date = formData.get("date");
-    // history.push(`/options/${date}`);
+    const formData = new FormData(event.target);
+    const date = formData.get("date");
+    onSelectDate(date);
+    history.push(`/options/${date}`);
   };
 
   return (
