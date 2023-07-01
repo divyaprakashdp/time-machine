@@ -1,14 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-import DateForm from './DateForm';
+import logo from "./logo.svg";
+import "./App.css";
+import DateForm from "./DateForm";
+import Navigation from "./navigation";
+import { DateProvider } from './DateContext';
 
 function App() {
   return (
-    <div className="App">
+    <DateProvider>
+      <div className="App">
       <header className="App-header">
-        <DateForm/>
+        <DateForm />
       </header>
+      <Navigation />
     </div>
+    </DateProvider>
+    
   );
 }
 
