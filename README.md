@@ -1,5 +1,5 @@
 # Time Machine Web Page
-This is a web page that allows users to explore historical events and media by entering a specific year. The page is designed to have a sci-fi look and feel, and incorporates elements of the Wes Anderson style through the use of pastel colors, quirky fonts, and vintage imagery.
+This is a web page that allows users to explore historical events and media by entering a specific date. The page incorporates elements of the Wes Anderson style through the use of pastel colors, quirky fonts, and vintage imagery.
 
 ### Technologies Used
 - ReactJS: Used for building the front-end of the web page, including the form for entering the date and the various media options.
