@@ -21,17 +21,13 @@ const DisplayCards = (props) => {
         },
         boxShadow: 2,
         marginLeft: 6,
-        overflowX: 'none'
+        backgroundColor: "#aac9af"
       }}
     >
-      <CardHeader
-        title={props.cardTitle}
-        subheader="September 14, 2016"
-      />
       <CardMedia
         component="img"
-        height="194"
-        image="/static/images/cards/paella.jpg"
+        height="250"
+        image={props.imageUrl}
         alt="Paella dish"
       />
       <CardContent sx={{ height: 150 }}>
