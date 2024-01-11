@@ -5,26 +5,49 @@ import { DateContext } from "./DateContext";
 function DateForm() {
   const navigate = useNavigate();
   const { setDate } = useContext(DateContext);
-  const [inputDate, setInputDate] = useState(new Date());
+  const [inputDay, setInputDay] = useState(1);
+  const [inputMonth, setInputMonth] = useState(1);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("event val = ", event.target[0].value);
-    setDate(event.target[0].value);
+    setDate(`${inputMonth}/${inputDay}`);
     navigate("/EventsPage");
+  };
+
+  const dayMaxValue = (month) => {
+    if (month < 1 || month > 12) {
+      return "Invalid month";
+    }
+
+    // Use an array to store the number of days in each month
+    const daysInMonthArray = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    // Return the number of days for the given month
+    return daysInMonthArray[month - 1];
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      <h1>TIME MACHINE</h1>
       <label>
-        Select a date:
+        Select the month:
         <input
-          type="date"
-          min="1900"
-          max="2099"
-          step="1"
-          value={inputDate}
-          onChange={(e) => setInputDate(e.target.value)}
+          type="number"
+          max={12}
+          min={1}
+          value={inputMonth}
+          onChange={(e) => setInputMonth(e.target.value)}
+        />
+      </label>
+      <label>
+        Select the day:
+        <input
+          type="number"
+          max={dayMaxValue(inputMonth)}
+          min={1}
+          value={inputDay}
+          onChange={(e) => setInputDay(e.target.value)}
         />
       </label>
       <button type="submit">Go</button>

@@ -6,59 +6,22 @@ import { useNavigate } from "react-router-dom";
 import { DateContext } from "./DateContext";
 import "./App.css";
 
-function getMonthName(monthNumber) {
-  const date = new Date();
-  date.setMonth(monthNumber - 1);
-
-  return date.toLocaleString("en-US", { month: "short" });
-}
-
-function getMonth(date) {
-  return date.slice(5, 7);
-}
-
-function getDay(date) {
-  return date.slice(8);
-}
-
-function getYear(date) {
-  return date.slice(0, 4);
-}
-
 function EventsPage() {
   const navigate = useNavigate();
   const { selectedDate } = useContext(DateContext);
   const [isDataAvailable, setDataAvailable] = useState(false);
   const [eventData, setEventData] = useState([]);
 
-  // const options = {
-  //   method: "GET",
-  //   url: "https://historical-events-by-api-ninjas.p.rapidapi.com/v1/historicalevents",
-  //   params: {
-  //     year: selectedDate,
-  //   },
-  //   headers: {
-  //     "X-RapidAPI-Key": "851ce32772msh9f952fe7e7c8a91p1f386fjsn2a6c20768b56",
-  //     "X-RapidAPI-Host": "historical-events-by-api-ninjas.p.rapidapi.com",
-  //   },
-  // };
-
   useEffect(() => {
     const getEventsData = async () => {
       console.log("selectedDate", selectedDate);
       try {
         const response = await axios.get(
-          `https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/events/${getMonth(
-            selectedDate
-          )}/${getDay(selectedDate)}`
+          `https://api.wikimedia.org/feed/v1/wikipedia/en/onthisday/events/${selectedDate}`
         );
-
-        const eventdataArray = response.data.events.filter(
-          (item) => item.year == getYear(selectedDate)
-        );
-        setDataAvailable(eventdataArray.length > 0);
-        setEventData(eventdataArray);
-        console.log("Event Data => ", eventdataArray);
+        console.log(response);
+        setDataAvailable(response.data.events);
+        setEventData(response.data.events);
       } catch (error) {
         console.error(error);
       }
@@ -68,26 +31,21 @@ function EventsPage() {
 
   return (
     <div>
-      <label className="option-title">Year Selected: {selectedDate}</label>
-      <Grid
-        container
-        direction="row"
-        justifyContent="flex-start"
-        rowSpacing={5}
-      >
-        {isDataAvailable ? (
+      <label className="option-title">Date Selected: {selectedDate}</label>
+      <Grid container direction="row" justifyContent="center" rowSpacing={5}>
+        {eventData ? (
           eventData.map((event) => (
             <Grid item>
               <DisplayCards
-                imageUrl={event.pages[1].thumbnail.source}
+                imageUrl={event.pages[0].thumbnail?.source}
                 cardData={event.text}
-                btnText="More.."
-                onClick={() => navigate("/myDashboard")}
+                // btnText="More.."
+                // onClick={() => navigate("/myDashboard")}
               />
             </Grid>
           ))
         ) : (
-          <Alert severity="info">
+          <Alert severity="warning">
             No events available for the entered date.
           </Alert>
         )}

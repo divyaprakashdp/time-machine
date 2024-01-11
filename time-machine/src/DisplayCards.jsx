@@ -6,7 +6,7 @@ import {
   CardActions,
   Button,
   CardHeader,
-  CardMedia
+  CardMedia,
 } from "@mui/material";
 
 const DisplayCards = (props) => {
@@ -14,24 +14,27 @@ const DisplayCards = (props) => {
     <Card
       variant="outlined"
       sx={{
-        maxWidth: 345,
-        minWidth: 345,
+        maxWidth: "100%",
+        width: 280,
+        height: 460,
         ":hover": {
           boxShadow: 20,
         },
         boxShadow: 2,
         marginLeft: 6,
-        backgroundColor: "#aac9af"
+        backgroundColor: "#aac9af",
       }}
     >
       <CardMedia
         component="img"
-        height="250"
+        width="160"
+        height="280"
+        sx={{ objectFit: "contain" }}
         image={props.imageUrl}
         alt="Paella dish"
       />
-      <CardContent sx={{ height: 150 }}>
-        <Typography variant="body2" color="text.secondary">
+      <CardContent>
+        <Typography variant="body1" color="text.secondary">
           {props.cardData}
         </Typography>
       </CardContent>
