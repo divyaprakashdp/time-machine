@@ -22,6 +22,8 @@ const DisplayCards = (props) => {
         },
         boxShadow: 2,
         marginLeft: 6,
+        marginTop: 2,
+        marginBottom: 2,
         backgroundColor: "#aac9af",
       }}
     >
@@ -31,7 +33,7 @@ const DisplayCards = (props) => {
         height="280"
         sx={{ objectFit: "contain" }}
         image={props.imageUrl}
-        alt="Paella dish"
+        alt={props.altTitle}
       />
       <CardContent>
         <Typography variant="body1" color="text.secondary">

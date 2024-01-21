@@ -83,11 +83,11 @@ button[type="submit"]:hover {
   letter-spacing: 0.1em;
   color: #9d5c5c;
   text-shadow: 1px 1px #d3d3d3;
-  margin-bottom: 0.5rem;
+  margin: 2rem;
   justify-content: "center";
   text-align: "center";
 }
-
+ 
 .youtube-video {
   width: 100%;
   height: 0;

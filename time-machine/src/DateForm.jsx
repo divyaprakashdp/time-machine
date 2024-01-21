@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { DateContext } from "./DateContext";
+import { Grid } from "@mui/material";
 
 function DateForm() {
   const navigate = useNavigate();
@@ -30,26 +31,37 @@ function DateForm() {
   return (
     <form onSubmit={handleSubmit}>
       <h1>TIME MACHINE</h1>
-      <label>
-        Select the month:
-        <input
-          type="number"
-          max={12}
-          min={1}
-          value={inputMonth}
-          onChange={(e) => setInputMonth(e.target.value)}
-        />
-      </label>
-      <label>
-        Select the day:
-        <input
-          type="number"
-          max={dayMaxValue(inputMonth)}
-          min={1}
-          value={inputDay}
-          onChange={(e) => setInputDay(e.target.value)}
-        />
-      </label>
+      <Grid
+        container
+        spacing={4}
+        sx={{ alignItems: "center", justifyContent: "center" }}
+      >
+        <Grid item>
+          <label>
+            Select the month:
+            <input
+              type="number"
+              max={12}
+              min={1}
+              value={inputMonth}
+              onChange={(e) => setInputMonth(e.target.value)}
+            />
+          </label>
+        </Grid>
+        <Grid item>
+          <label>
+            Select the day:
+            <input
+              type="number"
+              max={dayMaxValue(inputMonth)}
+              min={1}
+              value={inputDay}
+              onChange={(e) => setInputDay(e.target.value)}
+            />
+          </label>
+        </Grid>
+      </Grid>
+
       <button type="submit">Go</button>
     </form>
   );
