@@ -3,11 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { DateContext } from "./DateContext";
 import { Grid } from "@mui/material";
 
+const today = () => {
+  return {
+    day: new Date().getDay(),
+    month: new Date().getMonth() + 1,
+  };
+};
+
 function DateForm() {
+  console.log(`aaj - ${today().day}`);
   const navigate = useNavigate();
   const { setDate } = useContext(DateContext);
-  const [inputDay, setInputDay] = useState(1);
-  const [inputMonth, setInputMonth] = useState(1);
+  const [inputDay, setInputDay] = useState(new Date().getDate());
+  const [inputMonth, setInputMonth] = useState(new Date().getMonth() + 1);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,11 +28,7 @@ function DateForm() {
     if (month < 1 || month > 12) {
       return "Invalid month";
     }
-
-    // Use an array to store the number of days in each month
     const daysInMonthArray = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-    // Return the number of days for the given month
     return daysInMonthArray[month - 1];
   };
 
@@ -34,7 +38,10 @@ function DateForm() {
       <Grid
         container
         spacing={4}
-        sx={{ alignItems: "center", justifyContent: "center" }}
+        sx={{
+          alignItems: "center",
+          justifyContent: "center",
+        }}
       >
         <Grid item>
           <label>

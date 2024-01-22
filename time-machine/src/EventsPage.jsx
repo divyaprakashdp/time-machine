@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { Grid, Alert, LinearProgress } from "@mui/material";
+import { Grid, Alert, CircularProgress } from "@mui/material";
 import DisplayCards from "./DisplayCards";
 import { useNavigate } from "react-router-dom";
 import { DateContext } from "./DateContext";
@@ -38,7 +38,7 @@ function EventsPage() {
   }
 
   if (isLoading) {
-    return <LinearProgress color="info" />;
+    return <CircularProgress color="info" />;
   }
 
   return (
