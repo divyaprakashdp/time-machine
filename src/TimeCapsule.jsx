@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Grid } from "@mui/material";
 import DisplayCards from "./DisplayCards";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 function TimeCapsule({ date }) {
   const [youtubeVideos, setYoutubeVideos] = useState([]);
@@ -78,7 +78,7 @@ function TimeCapsule({ date }) {
   }, [date]);
   return (
     <Grid>
-      
+
     </Grid>
   );
 }

@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 export const DateContext = createContext();
 
@@ -16,4 +16,8 @@ export const DateProvider = ({ children }) => {
       {children}
     </DateContext.Provider>
   );
+};
+
+export const useDate = () => {
+  return useContext(DateContext); // Corrected here
 };
